@@ -12,14 +12,13 @@ const xmlparser = require("express-xml-bodyparser");
 app.use(cors());
 app.use(xmlparser());
 
+// Helper func
 const parseXmlToJson = (xml_form) => {
   const data = JSON.stringify(xml_form, null, 4);
   const json_data = JSON.parse(data).data;
-  console.log("our data -> ", json_data.email[0]);
   const email = json_data.email[0];
   const name = json_data.name[0];
   const pass = json_data.password[0];
-  console.log("email -> ", email);
   return {
     email: json_data.email[0],
     name: json_data.name[0],
@@ -27,8 +26,6 @@ const parseXmlToJson = (xml_form) => {
   };
 };
 
-// trailing comma
-// array in json node js
 app.get("/", (res) => {
   res.send("Welcome to System Integration mandatory 1 server 2!");
 });

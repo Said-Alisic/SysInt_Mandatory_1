@@ -12,8 +12,6 @@ def json_to_csv(json_data):
 
 	i = 1
 	for key in json_data["data"]:
-		# print(i)
-		# print(data_length)
 		if(i < data_length):
 			headers += str(key) + ','
 			i += 1
@@ -26,9 +24,7 @@ def json_to_csv(json_data):
 	for key in json_data["data"]:
 		if(i < data_length):
 			data += json_data["data"][key] + ','
-			# data += json_data["data"][key][0] + ','
 			i += 1
-			# print(key, ":", json_data["data"][key][0])
 		else:
 			data += json_data["data"][key]
 
